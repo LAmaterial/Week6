@@ -1,0 +1,15 @@
+<h1>Reviews for <%= @restaurant.name %> </h1>
+
+<div>
+  <% @reviews.each do |r| %>
+    <h3>
+      <%= r.rating %>
+    </h3>
+    <p>
+      <%= r.body %>
+    </p>
+    <p>
+      <%= r.created_at.strftime("%B %d %Y")  %>
+    </p> <br>
+  <% end %>
+</div>

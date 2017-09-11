@@ -1,0 +1,2195 @@
+  [1m[35m (123.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "restaurant_reviews_development"[0m
+  [1m[35m (119.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "restaurant_reviews_test"[0m
+  [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3707338065307566795);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRestaurants (20170714132857)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" serial primary key, "name" character varying NOT NULL, "address" character varying NOT NULL, "city" character varying NOT NULL, "state" character varying NOT NULL, "zip" integer NOT NULL, "description" character varying)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170714132857"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-07-14 13:32:11 UTC], ["updated_at", 2017-07-14 13:32:11 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3707338065307566795)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'restaurants'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3707338065307566795);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRestaurants (20170714132857)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.1ms)[0m  [1m[35mDROP TABLE "restaurants"[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170714132857"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3707338065307566795)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3707338065307566795);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRestaurants (20170714132857)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" serial primary key, "name" character varying NOT NULL, "address" character varying NOT NULL, "city" character varying NOT NULL, "state" character varying NOT NULL, "zip" integer NOT NULL, "description" character varying)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170714132857"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3707338065307566795)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'restaurants'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for ::1 at 2017-07-14 10:00:28 -0400
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/config/routes.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  resources :restaurants only: [:index, :new, :create, :show]
+                             ^):
+  
+config/routes.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.7ms)
+Started GET "/" for ::1 at 2017-07-14 10:01:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+LoadError (Unable to autoload constant RestaurantsController, expected /Users/lukerafferty/challenges/restaurant-reviews/app/controllers/restaurants_controller.rb to define it):
+  
+activesupport (5.0.0.1) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+activesupport (5.0.0.1) lib/active_support/dependencies.rb:203:in `const_missing'
+activesupport (5.0.0.1) lib/active_support/inflector/methods.rb:268:in `const_get'
+activesupport (5.0.0.1) lib/active_support/inflector/methods.rb:268:in `block in constantize'
+activesupport (5.0.0.1) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.0.1) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.0.1) lib/active_support/inflector/methods.rb:266:in `constantize'
+activesupport (5.0.0.1) lib/active_support/dependencies.rb:583:in `get'
+activesupport (5.0.0.1) lib/active_support/dependencies.rb:614:in `constantize'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:93:in `controller_class'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.1ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.8ms)
+Started GET "/" for ::1 at 2017-07-14 10:03:05 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  Rendered restaurants/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 348ms (Views: 343.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-07-14 10:04:10 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (3.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 34ms (Views: 22.8ms | ActiveRecord: 5.7ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ALLIED BANK PHILIPPINES (UK) PLC"], ["address", "982 Miller Shore"], ["city", "Mosciskimouth"], ["state", "Texas"], ["zip", 20517], ["description", "I'm okay!"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ABU DHABI ISLAMIC BANK"], ["address", "13297 Stehr Points"], ["city", "South Lorena"], ["state", "Wisconsin"], ["zip", 33879], ["description", "Stoop Kid's afraid to leave his stoop!"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "OTKRITIE SECURITIES LIMITED"], ["address", "37334 Ryann Gardens"], ["city", "Tressaborough"], ["state", "New York"], ["zip", 19183], ["description", "Kitty, kitty, kitty, do you like to pet the kitty? I like to pet the kitty! Hey look! I'm petting the kitty!"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "ABN AMRO QUOTED INVESTMENTS (UK) LIMITED"], ["address", "305 Lizeth Dale"], ["city", "Gleasonton"], ["state", "Missouri"], ["zip", 98026], ["description", "Stoop Kid's afraid to leave his stoop!"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2017-07-14 10:23:16 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (20.4ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 5.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `motto' for #<Restaurant:0x007fc8e6a513e0>):
+    4:     <h3>
+    5:       <%= link_to "restaurant #{r.name}", restaurant_path(r) %>
+    6:     </h3>
+    7:     <p><%= r.motto %></p>
+    8:   <% end %>
+    9: </div>
+   10: 
+  
+app/views/restaurants/index.html.erb:7:in `block in _app_views_restaurants_index_html_erb___702795807584801637_70250412478640'
+app/views/restaurants/index.html.erb:3:in `_app_views_restaurants_index_html_erb___702795807584801637_70250412478640'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.1ms)
+Started GET "/" for ::1 at 2017-07-14 10:23:36 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/restaurants/1" for ::1 at 2017-07-14 10:23:41 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (1.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 50ms (Views: 25.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-07-14 10:24:12 -0400
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-07-14 10:24:56 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wN8vXHrWSo2464TMlhl4dUdbqkCcpps//VTqQfaFBnn97nZ7fKCORcblj4hN0aJImsS8GvUwlOuw4t1cIYcsrQ==", "restaurant"=>{"name"=>"Testaurant", "address"=>"16 boo street", "city"=>"Ghosttown", "state"=>"MASS", "zip"=>"2131", "description"=>"The bestaurant"}, "commit"=>"Add restaurant"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Testaurant"], ["address", "16 boo street"], ["city", "Ghosttown"], ["state", "MASS"], ["zip", 2131], ["description", "The bestaurant"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.4ms)
+
+
+  
+NameError (undefined local variable or method `houses_path' for #<RestaurantsController:0x007fc8e958d9a0>):
+  
+app/controllers/restaurants_controller.rb:20:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.7ms)
+Started POST "/restaurants" for ::1 at 2017-07-14 10:25:33 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wN8vXHrWSo2464TMlhl4dUdbqkCcpps//VTqQfaFBnn97nZ7fKCORcblj4hN0aJImsS8GvUwlOuw4t1cIYcsrQ==", "restaurant"=>{"name"=>"Testaurant", "address"=>"16 boo street", "city"=>"Ghosttown", "state"=>"MASS", "zip"=>"2131", "description"=>"The bestaurant"}, "commit"=>"Add restaurant"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Testaurant"], ["address", "16 boo street"], ["city", "Ghosttown"], ["state", "MASS"], ["zip", 2131], ["description", "The bestaurant"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 18ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/restaurants" for ::1 at 2017-07-14 10:25:33 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2017-07-14 10:26:08 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 30ms (Views: 25.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants/5" for ::1 at 2017-07-14 10:26:11 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-07-14 10:26:26 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants/6" for ::1 at 2017-07-14 10:27:02 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRestaurant Load (4.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-07-14 10:27:05 -0400
+Processing by RestaurantsController#new as HTML
+  Parameters: {"authenticity_token"=>"Q/ucmSHY0MgJ7dzIvX0nYttuM3Ld42jhIlkMZRQW0ql+ysW+J64UAHfj14xmtf1fBvElKLR1ZzVv7zt4wxT4fQ=="}
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-07-14 10:27:28 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yEFUHzZJxXple1NHF7+y1BWhBUU27D3+GlCTD+qW29b1cA04MD8Bsht1WAPMd2jpyD4TH196MipX5qQSPZTxAg==", "restaurant"=>{"name"=>"Grapestore", "address"=>"19 Fun street", "city"=>"Boston", "state"=>"MA", "zip"=>"001231", "description"=>"Yum"}, "commit"=>"Add restaurant"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Grapestore"], ["address", "19 Fun street"], ["city", "Boston"], ["state", "MA"], ["zip", 1231], ["description", "Yum"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 11ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/restaurants" for ::1 at 2017-07-14 10:27:28 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 26ms (Views: 22.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-07-14 10:27:41 -0400
+Processing by RestaurantsController#new as HTML
+  Parameters: {"authenticity_token"=>"I+aVRVyWOcATumdjKhSgbxVY1E5vqey4DA/ypccNF40e18xiWuD9CG20bCfx3HpSyMfCFAY/42xBucW4EA89WQ=="}
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 35ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-07-14 10:27:49 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Si5da/3EXtoIw8wba4gj1qiTQCzSo30bz7ZkPXjsFd13HwRM+7KaEnbNx1+wQPnrdQxWdrs1cs+CAFMgr+4/CQ==", "restaurant"=>{"name"=>"asdf", "address"=>"asdf", "city"=>"sadf", "state"=>"sadf", "zip"=>"532", "description"=>""}, "commit"=>"Add restaurant"}
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "asdf"], ["address", "asdf"], ["city", "sadf"], ["state", "sadf"], ["zip", 532], ["description", ""]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 7.8ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"restaurants"} missing required keys: [:id]):
+  
+app/controllers/restaurants_controller.rb:20:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.8ms)
+Started GET "/restaurants/new" for ::1 at 2017-07-14 10:28:44 -0400
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 29ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-07-14 10:28:46 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mumYvXTqWVYJp81Dr2jl1YB2JwsnuoC05HmFHc6zS6+n2MGacpydnnepxgd0oD/oXekxUU4sj2Cpz7IAGbFhew==", "restaurant"=>{"name"=>"asdf", "address"=>"asdf", "city"=>"sadf", "state"=>"sadf", "zip"=>"532", "description"=>""}, "commit"=>"Add restaurant"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "asdf"], ["address", "asdf"], ["city", "sadf"], ["state", "sadf"], ["zip", 532], ["description", ""]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/9
+Completed 302 Found in 9ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/restaurants/9" for ::1 at 2017-07-14 10:28:46 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-07-14 10:29:21 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mumYvXTqWVYJp81Dr2jl1YB2JwsnuoC05HmFHc6zS6+n2MGacpydnnepxgd0oD/oXekxUU4sj2Cpz7IAGbFhew==", "restaurant"=>{"name"=>"asdf", "address"=>"", "city"=>"sadf", "state"=>"sadf", "zip"=>"532", "description"=>""}, "commit"=>"Add restaurant"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[31mROLLBACK[0m
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 43ms (Views: 33.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/restaurants" for ::1 at 2017-07-14 10:30:27 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2017-07-14 10:30:55 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (1.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 42ms (Views: 30.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2017-07-14 10:30:55 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 21ms (Views: 16.9ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3707338065307566795);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateReviews (20170714143154)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" serial primary key, "restaurant_id" integer NOT NULL, "body" character varying NOT NULL, "rating" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_restaurant_id" ON "reviews"  ("restaurant_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170714143154"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3707338065307566795)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'restaurants'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reviews'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3707338065307566795);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateReviews (20170714143154)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE "reviews"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170714143154"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3707338065307566795)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'restaurants'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3707338065307566795);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateReviews (20170714143154)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" serial primary key, "restaurant_id" integer NOT NULL, "body" character varying NOT NULL, "rating" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_restaurant_id" ON "reviews"  ("restaurant_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170714143154"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3707338065307566795)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'restaurants'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reviews'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for ::1 at 2017-07-14 10:52:14 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 25ms (Views: 20.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/restaurants/9" for ::1 at 2017-07-14 10:52:16 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRestaurant Load (1.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `reviews' for #<Restaurant:0x007fc8e579c240>):
+  
+app/controllers/restaurants_controller.rb:9:in `show'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.2ms)
+Started GET "/restaurants/9" for ::1 at 2017-07-14 10:54:14 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `reviews' for #<Restaurant:0x007fc8ee2e2598>):
+  
+app/controllers/restaurants_controller.rb:9:in `show'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.6ms)
+Started GET "/" for ::1 at 2017-07-14 10:55:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 236ms (Views: 215.1ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 10:55:05 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (2.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `reviews' for #<Restaurant:0x007f85671529a0>):
+  
+app/controllers/restaurants_controller.rb:9:in `show'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.3ms)
+Started GET "/restaurants/3" for ::1 at 2017-07-14 10:55:52 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 9.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Review:0x007f856819b3e8>):
+     7: 
+     8: 
+     9: <ul>
+    10:   <% @review.each do |r| %>
+    11:     <li><%= r.name %> <br>
+    12:       <%= r.body %> <br>
+    13:   <%= r.created_at.strftime("%B %d %Y")  %>  </li>
+  
+app/views/restaurants/show.html.erb:10:in `_app_views_restaurants_show_html_erb___2841230726019245262_70105489529580'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.7ms)
+Started GET "/restaurants/3" for ::1 at 2017-07-14 10:56:15 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (1.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 28ms (Views: 22.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 10:56:18 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (1.9ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 37ms (Views: 30.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 10:56:24 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p+BhiyFd2Ifmr1RCd/xDKd7ZNAcYvVHlJCV3Lz1g+sSa0TisJyscT5ihXwasNJkUA0YiXXErXjFpk0Ay6mLQEA==", "review"=>{"rating"=>"4", "body"=>"SO GOOD"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Unpermitted parameter: body
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 36ms (Views: 21.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 10:56:52 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/restaurants/3/reviews"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered collection of /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [7 times] (5.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (85.3ms)
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 11:00:14 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  Rendering reviews/index.html.erb within layouts/application
+  Rendered reviews/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1>Reviews for <%= @restaurant.name %> </h1>
+    2: 
+    3: <div>
+    4:   <% @reviews.each do |r| %>
+  
+app/views/reviews/index.html.erb:1:in `_app_views_reviews_index_html_erb__3395070717529893616_70105486687000'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.6ms)
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 11:01:19 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: review):
+  
+app/controllers/reviews_controller.rb:28:in `review_params'
+app/controllers/reviews_controller.rb:4:in `index'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.0ms)
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 11:01:31 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: review):
+  
+app/controllers/reviews_controller.rb:28:in `review_params'
+app/controllers/reviews_controller.rb:4:in `index'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.7ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:01:35 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vYxDSiMkwFYfGygVcL41tFAMcUiTfUhLQ196nVFiWDqAvRptJVIEnmEVI1Grdu+JjZNnEvrrR58O6U2AhmBy7g==", "review"=>{"rating"=>"4", "body"=>"SO GOOD"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "reviews" ("restaurant_id", "body", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 3], ["body", "SO GOOD"], ["rating", 4], ["created_at", 2017-07-14 15:01:35 UTC], ["updated_at", 2017-07-14 15:01:35 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 41ms (ActiveRecord: 17.7ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:01:35 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Review:0x007f8569022768>):
+     8: 
+     9: <ul>
+    10:   <% @reviews.each do |r| %>
+    11:     <li><%= r.name %> <br>
+    12:       <%= r.body %> <br>
+    13:   <%= r.created_at.strftime("%B %d %Y")  %>  </li>
+    14:   <% end %>
+  
+app/views/restaurants/show.html.erb:11:in `block in _app_views_restaurants_show_html_erb___2841230726019245262_70105479457960'
+app/views/restaurants/show.html.erb:10:in `_app_views_restaurants_show_html_erb___2841230726019245262_70105479457960'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.5ms)
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:02:02 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 40ms (Views: 31.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:02:56 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (2.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 35ms (Views: 24.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:03:28 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 25ms (Views: 20.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:04:31 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 30ms (Views: 26.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:05:08 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:17:37 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:5: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  validates :rating, numericality: {only_i...
+             ^
+/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:5: syntax error, unexpected ':', expecting keyword_end
+... 1, less_than_or_equal_to: 5} :message => "Rating must be be...
+...                               ^):
+  
+app/models/review.rb:5: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/models/review.rb:5: syntax error, unexpected ':', expecting keyword_end
+app/controllers/reviews_controller.rb:10:in `new'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.9ms)
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:18:05 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:5: syntax error, unexpected ':', expecting keyword_end
+... 1, less_than_or_equal_to: 5} :message => "Rating must be be...
+...                               ^):
+  
+app/models/review.rb:5: syntax error, unexpected ':', expecting keyword_end
+app/controllers/reviews_controller.rb:10:in `new'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.1ms)
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:19:13 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:5: syntax error, unexpected ':', expecting keyword_end
+... 1, less_than_or_equal_to: 5} :message => "Rating must be be...
+...                               ^):
+  
+app/models/review.rb:5: syntax error, unexpected ':', expecting keyword_end
+app/controllers/reviews_controller.rb:10:in `new'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.6ms)
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:21:23 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 8.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `m' for #<#<Class:0x007f8562ed0550>:0x007f8562eca678>):
+     8: </head>
+     9: <body>
+    10: 
+    11:   <% m.errors.each do |attr,msg|  %>
+    12:    <%=msg%>
+    13:   <% end %>
+    14: 
+  
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___3270722414341036582_70105433480740'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.4ms)
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:21:35 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 20.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:21:40 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5AMVrTxo9ilXjqk0jILaa49I1K8RxwaOszNI+QWv3VrZMkyKOh4y4SmAonBXSgBWUtfC9XhRCVr+hX/k0q33jg==", "review"=>{"rating"=>"6", "body"=>"sadfadf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 30ms (Views: 22.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:21:56 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ramkd7dTYesdTg0oYJ58WeBIagSEFflgEC7i06auA6mQmP1QsSWlI2NABmy7VqZkPdd8Xu2D9rRdmNXOcawpfQ==", "review"=>{"rating"=>"4", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 15.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:23:29 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QmKMvlW6AP4rj2g+kCHnjfc47Udz/1ZhMi6ybV+Twv5/U9WZU8zENlWBY3pL6T2wKqf7HRppWbV/mIVwiJHoKg==", "review"=>{"rating"=>"4", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected ':', expecting keyword_end
+... 1, less_than_or_equal_to: 5} :message => "Rating must be be...
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected ':', expecting keyword_end
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.8ms)
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 11:23:40 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...ss_than_or_equal_to: 5} message: => "Rating must be between ...
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/reviews_controller.rb:4:in `index'
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 11:23:40 -0400
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.3ms)
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...ss_than_or_equal_to: 5} message: => "Rating must be between ...
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/reviews_controller.rb:4:in `index'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.2ms)
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 11:23:51 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: review):
+  
+app/controllers/reviews_controller.rb:28:in `review_params'
+app/controllers/reviews_controller.rb:4:in `index'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.0ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:23:55 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5AMVrTxo9ilXjqk0jILaa49I1K8RxwaOszNI+QWv3VrZMkyKOh4y4SmAonBXSgBWUtfC9XhRCVr+hX/k0q33jg==", "review"=>{"rating"=>"6", "body"=>"sadfadf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 59ms (Views: 16.1ms | ActiveRecord: 13.2ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:24:00 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pNYWnH4S1oqwF5LroTgrNP2u77hxtGybK1dcCBrAtGSZ50+7eGQSQs4Zma968PEJIDH54hgiY09m4WsVzcKesA==", "review"=>{"rating"=>"1", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 33ms (Views: 22.8ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:24:06 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K0nXkL0PvVGTZCRLUWhxVflrCt/hg4JeYtGCX2ZH3V0WeI63u3l5me1qLw+KoKtoJPQchYgVjYovZ7VCsUX3iQ==", "review"=>{"rating"=>"0", "body"=>"sadf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (1.8ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 33ms (Views: 22.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 11:27:31 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: review):
+  
+app/controllers/reviews_controller.rb:28:in `review_params'
+app/controllers/reviews_controller.rb:4:in `index'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.4ms)
+Started GET "/restaurants/3/reviews/1" for ::1 at 2017-07-14 11:27:39 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/restaurants/3/reviews/1"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered collection of /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [8 times] (2.1ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (69.9ms)
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:27:54 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 24ms (Views: 18.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants/3/reviews/1" for ::1 at 2017-07-14 11:28:09 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/restaurants/3/reviews/1"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [8 times] (2.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (70.1ms)
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:28:13 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:28:21 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 21ms (Views: 15.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:28:23 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:28:35 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZXlGNTMfbdJQ1A1H3i49mcQVo9j8lMkCaluubBGODjtYSB8SNWmpGi7aBgMF5uekGYq1gpUCxtYn7Zlxxowk7w==", "review"=>{"rating"=>"4", "body"=>"asdfasdf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "reviews" ("restaurant_id", "body", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 3], ["body", "asdfasdf"], ["rating", 4], ["created_at", 2017-07-14 15:28:35 UTC], ["updated_at", 2017-07-14 15:28:35 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 15ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:28:35 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (1.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 25ms (Views: 16.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:28:39 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 29ms (Views: 25.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:34:34 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ELuXRERsvN5OMHMQv8D6lNYMe7QcguKecbhfqwcB+aMtis5jQhp4FjA+eFRkCCCpC5Nt7nUU7Uo8Dmi20APTdw==", "review"=>{"rating"=>"5", "body"=>"asdfa"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:5: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  validates :body, presence: true
+             ^):
+  
+app/models/review.rb:5: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.0ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:35:12 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iKFz2oPaIwDC2y4JS4eurkf1RtSq5w8CWDxdwSJiQde1kCr9haznyLzVJU2QT3STmmpQjsNxANYVimrc9WBrAw==", "review"=>{"rating"=>"5", "body"=>"asdfa"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("restaurant_id", "body", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 3], ["body", "asdfa"], ["rating", 5], ["created_at", 2017-07-14 15:35:12 UTC], ["updated_at", 2017-07-14 15:35:12 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 35ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:35:12 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 25ms (Views: 20.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:35:34 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 16ms (Views: 12.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:35:58 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (1.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 28ms (Views: 20.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:36:06 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:36:12 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:36:19 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cvwOj19FjgJAvGU/RUybPHuxa/Tgl9bY8+1zFRIHwOtPzVeoWTNKyj6ybnuehEEBpi59rokB2Qy+W0QIxQXqPw==", "review"=>{"rating"=>"0", "body"=>"asdf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 34ms (Views: 23.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:36:31 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H56Whb/qnl6Yc3PNoEzGKlcZx4/LM5DnknRRsL6rtKUir8+iuZxaluZ9eIl7hBwXiobR1aKlnzPfwmataamecQ==", "review"=>{"rating"=>"8", "body"=>"asdf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (4.7ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 28ms (Views: 16.9ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:47:27 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SJUKGQbl+FqVX2jq8gh0bbm09OFHeIKGPLkYHyyXqlJ1pFM+AJM8kutRY64pwK5QZCviuy7ujVJxDy8C+5WAhg==", "review"=>{"rating"=>"84", "body"=>"asdf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 51ms (Views: 18.1ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:47:32 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JWje6EB3m42DCKZidWz3Sk7v/+EGt+F09bTgQutezcIYWYfPRgFfRf0GrSaupC13k3Dpu28h7qC4AtdfPFznFg==", "review"=>{"rating"=>"4", "body"=>"asdf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "reviews" ("restaurant_id", "body", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 3], ["body", "asdf"], ["rating", 4], ["created_at", 2017-07-14 15:47:32 UTC], ["updated_at", 2017-07-14 15:47:32 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 11ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:47:32 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 22ms (Views: 16.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:47:34 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:47:37 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VranZP/Fs80UxYTR65CbN2HNYwAJtzYrzd5224uvHJxrh/5D+bN3BWrLj5UwWEEKvFJ1WmAhOf+AaEHGXK02SA==", "review"=>{"rating"=>"3", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 20ms (Views: 16.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:47:42 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LWJI4aAiDrCtYZTCjyJWSSUbCPrSHQMYtacH6Lr52ooQUxHGplTKeNNvn4ZU6ox0+IQeoLuLDMz4ETD1bfvwXg==", "review"=>{"rating"=>"", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 27ms (Views: 20.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:47:48 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wUlHeZNjuEhMknR1TIRR9d4nLhHDfHYfoFKdpkFwtnP8eB5elRV8gDKcfzGXTIvIA7g4S6rqecvt5Kq7lnKcpw==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 26ms (Views: 21.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:48:33 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected =>
+...an_or_equal_to: 5}, message: => "Must be between 1 - 5"
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected =>
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.7ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:48:40 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...ss_than_or_equal_to: 5} message: => "Must be between 1 - 5"
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.8ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:48:54 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected ':', expecting keyword_end
+... 1, less_than_or_equal_to: 5} :message => "Must be between 1...
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected ':', expecting keyword_end
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.3ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:49:02 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown validator: 'MessageValidator'):
+  
+app/models/review.rb:4:in `<class:Review>'
+app/models/review.rb:1:in `<top (required)>'
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.1ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:49:32 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected ':', expecting keyword_end
+... 1, less_than_or_equal_to: 5} :message => "Must be between 1...
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected ':', expecting keyword_end
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.2ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:49:44 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...ss_than_or_equal_to: 5} message => "Must be between 1 - 5"
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.6ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:52:37 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected ':', expecting '}'
+...to: 1 && less_than_or_equal_to: 5} message => "Must be betwe...
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected ':', expecting '}'
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.5ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:52:44 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected ':', expecting '}'
+...to: 1 && less_than_or_equal_to: 5}
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected ':', expecting '}'
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.9ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:52:54 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0te/aZU/HVswl3WPbtMWYQwY00hbsunAuTehsZuADn3v5uZOk0nZk06Zfsu1G8xc0YfFEjIk5hT0gZasTIIkqQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 40ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:56:08 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YIlvE6bHzqgxHYr8qAyexgU3sF5+/2WiJ2rTqtvCr+lduDY0oLEKYE8TgbhzxET72KimBBdpanZq3OS3DMCFPQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected '\n', expecting =>):
+  
+app/models/review.rb:4: syntax error, unexpected '\n', expecting =>
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.3ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:56:18 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YIlvE6bHzqgxHYr8qAyexgU3sF5+/2WiJ2rTqtvCr+lduDY0oLEKYE8TgbhzxET72KimBBdpanZq3OS3DMCFPQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:4: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+... 1, less_than_or_equal_to: 5} "Rating must bet between 1 - 5"
+...                               ^):
+  
+app/models/review.rb:4: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+app/controllers/reviews_controller.rb:15:in `create'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.8ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:58:20 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YIlvE6bHzqgxHYr8qAyexgU3sF5+/2WiJ2rTqtvCr+lduDY0oLEKYE8TgbhzxET72KimBBdpanZq3OS3DMCFPQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 38ms (Views: 16.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:58:22 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhlvGpWiVY9z6PPD9PIrQ60tBBJmL42AUjk4hAMRr1irKDY9k9SRRw3m+IcvOvF+cLISSA+5glQfjw+Z1BOFjA==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 29ms (Views: 19.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:58:24 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8BJxnwqaJcj49C3a/aKFko37hha3e+9UrDlD+zkx02nNIyi4DOzhAIb6Jp4mal+vUGSQTN7t4IDhj3Tm7jP5vQ==", "review"=>{"rating"=>"9", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 32ms (Views: 23.0ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 11:58:26 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GJvEMk9xiIUI9penYPIX8+yq/RnnQKomY//3wdaVrhElqp0VSQdMTXb4nOO7Os3OMTXrQ47WpfIuScDcAZeExQ==", "review"=>{"rating"=>"3", "body"=>"safd"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "reviews" ("restaurant_id", "body", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 3], ["body", "safd"], ["rating", 3], ["created_at", 2017-07-14 15:58:26 UTC], ["updated_at", 2017-07-14 15:58:26 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 10ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 11:58:26 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:59:12 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lukerafferty/challenges/restaurant-reviews/app/models/review.rb:5: syntax error, unexpected tSTRING_BEG, expecting =>
+...han_or_equal_to: 5}, :message "Rating must be between 1 - 5"
+...                               ^):
+  
+app/models/review.rb:5: syntax error, unexpected tSTRING_BEG, expecting =>
+app/controllers/reviews_controller.rb:10:in `new'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.0ms)
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:59:30 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown validator: 'MessageValidator'):
+  
+app/models/review.rb:5:in `<class:Review>'
+app/models/review.rb:1:in `<top (required)>'
+app/controllers/reviews_controller.rb:10:in `new'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.3ms)
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 11:59:52 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown validator: 'CountValidator'):
+  
+app/models/review.rb:5:in `<class:Review>'
+app/models/review.rb:1:in `<top (required)>'
+app/controllers/reviews_controller.rb:10:in `new'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.4ms)
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 12:03:54 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 36ms (Views: 19.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:03:56 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QhjOPRpoHyjxD/fT2yqsxY8iEG4XX5TbW1w54C6JCzV/KZcaHB7b4I8B/JcA4nb4Ur0GNH7Jmw8W6g79+Ysh4Q==", "review"=>{"rating"=>"4", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 32ms (Views: 22.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 12:07:23 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: review):
+  
+app/controllers/reviews_controller.rb:29:in `review_params'
+app/controllers/reviews_controller.rb:4:in `index'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.8ms)
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 12:09:47 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: review):
+  
+app/controllers/reviews_controller.rb:28:in `review_params'
+app/controllers/reviews_controller.rb:4:in `index'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.9ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:09:51 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QhjOPRpoHyjxD/fT2yqsxY8iEG4XX5TbW1w54C6JCzV/KZcaHB7b4I8B/JcA4nb4Ur0GNH7Jmw8W6g79+Ysh4Q==", "review"=>{"rating"=>"4", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 56ms (Views: 15.8ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/restaurants/3/reviews" for ::1 at 2017-07-14 12:12:53 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"restaurant_id"=>"3"}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: review):
+  
+app/controllers/reviews_controller.rb:28:in `review_params'
+app/controllers/reviews_controller.rb:4:in `index'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.0ms)
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:13:31 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QhjOPRpoHyjxD/fT2yqsxY8iEG4XX5TbW1w54C6JCzV/KZcaHB7b4I8B/JcA4nb4Ur0GNH7Jmw8W6g79+Ysh4Q==", "review"=>{"rating"=>"4", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 50ms (Views: 19.0ms | ActiveRecord: 10.7ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:13:35 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YOF9fUu5RWDYfNpgVUtzX0WO0CVtGdyWNEKJYmc63Mdd0CRaTc+BqKZy0SSOg6limBHGfwSP00J59L5/sDj2Ew==", "review"=>{"rating"=>"4", "body"=>"dsaf"}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("restaurant_id", "body", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 3], ["body", "dsaf"], ["rating", 4], ["created_at", 2017-07-14 16:13:35 UTC], ["updated_at", 2017-07-14 16:13:35 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 12:13:35 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants/3/reviews/new" for ::1 at 2017-07-14 12:13:41 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 34ms (Views: 27.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:13:44 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yt2kglZ31ZjGN//DVX235AFzeeXRiaAi7KX4HGlaCCz37P2lUAERULg59IeOtW3Z3Oxvv7gfr/ahE88Bvlgi+A==", "review"=>{"rating"=>"6", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:14:52 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gDxmf899KTga3VvlyAfgiI6Uw1hLCS1njOadnYZQXG29DT9YyQvt8GTTUKETzzq1UwvVAiKfIrPBUKqAUVJ2uQ==", "review"=>{"rating"=>"6", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 42ms (Views: 17.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:15:59 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YOoq+jZ4jrScEO5cBRmuAjBMPZVfaDLSUxceQg+5iH5d23PdMA5KfOIe5Rje0XQ/7dMrzzb+PQYeoSlf2Luiqg==", "review"=>{"rating"=>"6", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 47ms (Views: 17.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:16:01 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3H+W+ZMSJjgRHVXdAO5wrHastd1Mwj97MK/hyN+JOIrhTs/elWTi8G8TXpnbJqqRqzOjhyVUMK99GdbVCIsSXg==", "review"=>{"rating"=>"6", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (1.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 34ms (Views: 23.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:16:02 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/NlN8I6EDG96SULVp+bEVvvFQeVO+wtyyax3t4+XvJbB6BTXiPLIpwRHSZF8Lh5rJlpXvydtBKaEGkCqWJWWQg==", "review"=>{"rating"=>"6", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 27ms (Views: 19.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/restaurants/3/reviews" for ::1 at 2017-07-14 12:16:33 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DJVHe1jpLoAm0q+qbPSYRnF7XKzLLdlfeSK/8ZT2xmAxpB5cXp/qSFjcpO63PEJ7rORK9qK71os0lIjsQ/TstA==", "review"=>{"rating"=>"6", "body"=>""}, "commit"=>"Add Review", "restaurant_id"=>"3"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 40ms (Views: 17.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/restaurants" for ::1 at 2017-07-14 12:22:43 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-07-14 12:22:45 -0400
+Processing by RestaurantsController#new as HTML
+  Parameters: {"authenticity_token"=>"GwiDDgXhb6GkAztT1wdCz0Pij4VOfcdgb5GLts8HeS8mOdopA5eradoNMBcMz5jynn2Z3yfryLQiJ7yrGAVT+w=="}
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-07-14 12:22:52 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"54LZ7aWlcATTfpprUE0mJ4d/GfHwKHaz3Ri/RDHg2JXas4DKo9O0zK1wkS+LhfwaWuAPq5m+eWeQrohZ5uLyQQ==", "restaurant"=>{"name"=>"asfd", "address"=>"asdf", "city"=>"asdf", "state"=>"asdf", "zip"=>"123123", "description"=>""}, "commit"=>"Add Restaurant"}
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "city", "state", "zip", "description") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "asfd"], ["address", "asdf"], ["city", "asdf"], ["state", "asdf"], ["zip", 123123], ["description", ""]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/10
+Completed 302 Found in 13ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/restaurants/10" for ::1 at 2017-07-14 12:22:52 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 10]]
+  Rendered restaurants/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 24ms (Views: 19.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-07-14 12:22:56 -0400
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-07-14 12:22:59 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C16TobkuBA7tDrEF8GeeupLh1g7W+3j67uz7E4Tr7Uk2b8qGv1jAxpMAukErr0SHT37AVL9tdy6jWswOU+nHnQ==", "restaurant"=>{"name"=>"asfd", "address"=>"asdf", "city"=>"", "state"=>"asdf", "zip"=>"123123", "description"=>""}, "commit"=>"Add Restaurant"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 34ms (Views: 29.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants" for ::1 at 2017-07-14 12:23:23 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 29ms (Views: 23.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-07-14 12:23:26 -0400
+Processing by RestaurantsController#new as HTML
+  Parameters: {"authenticity_token"=>"L1ccOKdWvvmp9IpX4H0CZdGz+s9v59vptUxPPkcc47QSZkUfoSB6Mdf6gRM7tdhYDCzslQZx1D34+ngjkB7JYA=="}
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-07-14 12:23:29 -0400
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HH81qKlVLNRWZtKyYEAGgMtjwyWspOqsx8ugH9JGggkhTmyPryPoHCho2fa7iNy9FvzVf8Uy5XiKfZcCBUSo3Q==", "restaurant"=>{"name"=>"sadf", "address"=>"", "city"=>"sadf", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Restaurant"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 38ms (Views: 27.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/restaurants" for ::1 at 2017-07-14 12:26:47 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-07-14 12:26:54 -0400
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/restaurants/new/10" for ::1 at 2017-07-14 12:27:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/restaurants/new/10"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/lukerafferty/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [8 times] (2.7ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendering /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/lukerafferty/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (73.2ms)
+Started GET "/restaurants/10" for ::1 at 2017-07-14 12:27:08 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 10]]
+  Rendered restaurants/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 15.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-07-14 12:27:16 -0400
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants/7" for ::1 at 2017-07-14 12:28:20 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 7]]
+  Rendered restaurants/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/restaurants/7/reviews/new" for ::1 at 2017-07-14 12:28:22 -0400
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"7"}
+  [1m[36mRestaurant Load (1.7ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 28ms (Views: 22.1ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/restaurants/7/reviews" for ::1 at 2017-07-14 12:28:26 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fe8CNnPVFlvLpo5OQ0cYFj/GWlwlfMYwpO7cgplInb0o3lsRdaPSk7WohQqYj8Ir4llMBkzqyeTpWOufTkq3aQ==", "review"=>{"rating"=>"4", "body"=>"DSAF"}, "commit"=>"Add Review", "restaurant_id"=>"7"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("restaurant_id", "body", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 7], ["body", "DSAF"], ["rating", 4], ["created_at", 2017-07-14 16:28:26 UTC], ["updated_at", 2017-07-14 16:28:26 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants/7
+Completed 302 Found in 10ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/restaurants/7" for ::1 at 2017-07-14 12:28:26 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 7]]
+  Rendered restaurants/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/restaurants/7" for ::1 at 2017-07-14 12:28:40 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 7]]
+  Rendered restaurants/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/restaurants/7" for ::1 at 2017-07-14 12:29:40 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (1.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 7]]
+  Rendered restaurants/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-07-14 12:29:44 -0400
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.6ms)
+
+

@@ -1,0 +1,10 @@
+<h1>This is our restaurant Index page!!!!!!!</h1>
+<div>
+  <% @restaurants.each do |r| %>
+    <h3>
+      <%= link_to "restaurant #{r.name}", restaurant_path(r) %>
+    </h3>
+  <% end %>
+</div>
+
+<%= link_to 'Add New Restaurant', new_restaurant_path, method: :get %>
